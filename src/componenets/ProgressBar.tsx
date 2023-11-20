@@ -7,7 +7,7 @@ interface ProgressBarProps {
 
 const ProgressBar: React.FC<ProgressBarProps> = ({ progress, color }) => {
   return (
-    <div className="">
+    <div className="w-3/4">
       <div className="font-bold mb-1">Label</div>
       <div className="h-2 rounded-md w-full bg-neutral-200 dark:bg-neutral-600 overflow-hidden">
         <div

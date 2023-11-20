@@ -5,14 +5,18 @@ import { sideBarData } from "../utils/sideBarData";
 
 export default function Projects() {
   const [filteredOption, setFilteredOption] = useState<string>("all");
-  const [itemsPerPage] = useState(5);
+  const [itemsPerPage] = useState(2);
   const [currentPage, setCurrentPage] = useState(1);
 
   console.log(filteredOption);
+  const handlefilterChange = (option:string) => {
+    setFilteredOption(option);
+    setCurrentPage(1);
+  };
 
   const filteredItems = sideBarData.filter((item) => {
     const matchesFiltered =
-      filteredOption === "all" ||
+      filteredOption === "all" ||  filteredOption === "All" ||
       item.name.toLocaleLowerCase() === filteredOption.toLocaleLowerCase();
     return matchesFiltered;
   });
@@ -35,7 +39,7 @@ export default function Projects() {
           <SideBar
             data={sideBarData}
             activeTab={filteredOption}
-            onClick={setFilteredOption}
+            onClick={handlefilterChange}
           />
         </div>
         <div className="col-soan-4 min-h-[30vh] flex flex-col justify-between">
